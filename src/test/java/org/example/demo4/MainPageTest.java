@@ -39,7 +39,6 @@ public class MainPageTest {
         WebElement searchField = driver.findElement(By.cssSelector("#sb_form_q"));
         searchField.sendKeys(input);
         searchField.submit();
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.attributeContains(By.cssSelector("h2 > a[href]"), "href", "selenium"),
@@ -50,9 +49,7 @@ public class MainPageTest {
         driver.getCurrentUrl();
         ArrayList tabs = new ArrayList<>(driver.getWindowHandles());
         if (tabs.size() > 1) driver.switchTo().window(tabs.get(1).toString());
-
         assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Первый отображаемый сайт на странице https://www.selenium.dev/");
-
     }
 
     public void clickElement(List<WebElement> results, int num) {
