@@ -49,7 +49,7 @@ public class MainPageTest {
         driver.getCurrentUrl();
         ArrayList tabs = new ArrayList<>(driver.getWindowHandles());
         if (tabs.size() > 1) driver.switchTo().window(tabs.get(1).toString());
-        assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Первый отображаемый сайт на странице https://www.selenium.dev/");
+        assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Первый отображаемый сайт на странице не https://www.selenium.dev/");
     }
 
     public void clickElement(List<WebElement> results, int num) {
