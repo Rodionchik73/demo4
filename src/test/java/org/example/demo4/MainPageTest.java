@@ -36,20 +36,22 @@ public class MainPageTest {
     @Test
     public void seleniumList() {
         String input = "Selenium";
+        By linkUnderH2Css = By.cssSelector("h2 > a[href]");
         WebElement searchField = driver.findElement(By.cssSelector("#sb_form_q"));
         searchField.sendKeys(input);
         searchField.submit();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.attributeContains(By.cssSelector("h2 > a[href]"), "href", "selenium"),
-                ExpectedConditions.elementToBeClickable(By.cssSelector("h2 > a[href]"))
-        ));
-        List results = driver.findElements(By.cssSelector("h2 > a[href]"));
+                ExpectedConditions.elementToBeClickable(linkUnderH2Css)));
+        List<WebElement> results = driver.findElements(linkUnderH2Css);
         clickElement(results, 0);
         driver.getCurrentUrl();
-        ArrayList tabs = new ArrayList<>(driver.getWindowHandles());
-        if (tabs.size() > 1) driver.switchTo().window(tabs.get(1).toString());
-        assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Первый отображаемый сайт на странице не https://www.selenium.dev/");
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        if (tabs.size() > 1) driver.switchTo().window(tabs.get(1));
+        assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(),
+                "Первый отображаемый сайт на странице не https://www.selenium.dev/");
     }
 
     public void clickElement(List<WebElement> results, int num) {
