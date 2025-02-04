@@ -1,4 +1,4 @@
-package org.example.demo4;
+package org.example.demo4.tests;
 
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.openqa.selenium.WebElement;
@@ -17,9 +17,9 @@ public class MyWait {
         return new MyWait(seconds);
     }
 
-    public MyWait(int seconds) {
+   public MyWait(int seconds) {
         secondsToWait = seconds;
-        wait = new WebDriverWait(BaseTest.getDriver(), Duration.ofSeconds(seconds));
+        //wait = new WebDriverWait(BaseTest.getDriver(), Duration.ofSeconds(seconds));
     }
 
     public WebElement clickable(WebElement element) {
