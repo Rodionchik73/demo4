@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.example.jetbrainstet.MyWait.myWait;
 
 public class MainPageTest {
     private WebDriver driver;
@@ -61,5 +60,6 @@ public class MainPageTest {
     }
 
 }
+
 
 

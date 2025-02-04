@@ -13,7 +13,7 @@ public class MyWait {
     private WebDriverWait wait;
     private int secondsToWait;
 
-    public static MyWait myWait (int seconds) {
+    public static MyWait myWait(int seconds) {
         return new MyWait(seconds);
     }
 
@@ -32,7 +32,7 @@ public class MyWait {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public boolean invisible (WebElement element) {
+    public boolean invisible(WebElement element) {
         LOG.info("Ждем " + secondsToWait + "секунд, пока элемент не станет видимым: " + element.toString());
         return wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
     }
