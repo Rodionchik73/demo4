@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BingSearchTest {
+public class BingSearchTest extends BaseTest {
     private WebDriver driver;
 
     @BeforeEach
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.bing.com/");
@@ -52,6 +52,8 @@ public class BingSearchTest {
 
         assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Открылась не верная ссылка");
     }
+
+
 
     @Test
     public void searchFieldTest() {
